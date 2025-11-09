@@ -62,11 +62,14 @@ func TestPluginContext_OnTick(t *testing.T) {
 		// Must be continued.
 		require.Equal(t, types.ActionPause, action)
 
+		// Get the callout ID from the HTTP call that was made
+		calloutID := host.GetCalloutAttributesFromContext(id)[0].CalloutID
+
 		// Check the final request headers
-		host.CallOnHttpCallResponse(id, [][2]string{
+		host.CallOnHttpCallResponse(calloutID, [][2]string{
 			{"x-sablier-session-status", "not-ready"},
 		}, nil, []byte("Response from Sablier"))
-		response := host.GetCurrentResponseBody(id)
+		response := string(host.GetSentLocalResponse(id).Data)
 		require.Equal(t,
 			"Response from Sablier",
 			response,
