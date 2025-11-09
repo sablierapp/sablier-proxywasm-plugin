@@ -21,6 +21,6 @@ For general questions, ideas, or feedback, join the conversation in our [GitHub 
 
 For real-time support and community interaction, join our Discord server:
 
-[![Discord](https://img.shields.io/discord/1298488955947454464?logo=discord&logoColor=5865F2&cacheSeconds=1&link=http%3A%2F%2F)](https://discord.gg/6TXtfeWqx3)
+[![Discord](https://img.shields.io/discord/1298488955947454464?logo=discord&logoColor=5865F2&cacheSeconds=1&link=http%3A%2F%2F)](https://discord.gg/sDjU3wXw9g)
 
 We’re here to help and look forward to hearing from you!

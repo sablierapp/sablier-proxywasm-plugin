@@ -1,8 +1,8 @@
 <!-- omit in toc -->
 # Proxy Wasm Sablier Plugin
 
-[![Go Report Card](https://goreportcard.com/badge/github.com/sablierapp/sablier-caddy-plugin)](https://goreportcard.com/report/github.com/sablierapp/sablier-caddy-plugin)
-[![Discord](https://img.shields.io/discord/1298488955947454464?logo=discord&logoColor=5865F2&cacheSeconds=1&link=http%3A%2F%2F)](https://discord.gg/6TXtfeWqx3)
+[![Go Report Card](https://goreportcard.com/badge/github.com/sablierapp/sablier-proxywasm-plugin)](https://goreportcard.com/report/github.com/sablierapp/sablier-proxywasm-plugin)
+[![Discord](https://img.shields.io/discord/1298488955947454464?logo=discord&logoColor=5865F2&cacheSeconds=1&link=http%3A%2F%2F)](https://discord.gg/sDjU3wXw9g)
 
 Start your containers on demand, shut them down automatically when there's no activity using [ProxyWasm](https://github.com/proxy-wasm).
 
@@ -68,7 +68,7 @@ See the [nginx example](./examples/nginx/) on how to use the plugin.
 
 Join our Discord server to discuss and get support!
 
-[![Discord](https://img.shields.io/discord/1298488955947454464?logo=discord&logoColor=5865F2&cacheSeconds=1&link=http%3A%2F%2F)](https://discord.gg/6TXtfeWqx3)
+[![Discord](https://img.shields.io/discord/1298488955947454464?logo=discord&logoColor=5865F2&cacheSeconds=1&link=http%3A%2F%2F)](https://discord.gg/sDjU3wXw9g)
 
 ## Support
 
