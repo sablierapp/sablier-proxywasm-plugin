@@ -2,7 +2,6 @@
     "$schema": "https://raw.githubusercontent.com/googleapis/release-please/refs/heads/main/schemas/config.json",
     "packages": {
         ".": {
-            "skip-github-release": true,
             "release-type": "go",
             "bump-minor-pre-major": true,
             "changelog-sections": [
