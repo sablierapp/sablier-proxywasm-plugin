@@ -1,0 +1,17 @@
+# yaml-langage-server: $schema=https://goreleaser.com/static/schema.yml
+
+project_name: sablier-proxywasm-plugin
+version: 2
+
+builds:
+  - binary: sablier-proxywasm-plugin
+    no_unique_dist_dir: true
+    main: .
+    ldflags:
+      - ''
+    targets:
+      - wasip1_wasm
+    buildmode: c-shared
+
+changelog:
+  use: github
