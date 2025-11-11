@@ -38,6 +38,8 @@ Grab the latest binary from the [releases](https://github.com/sablierapp/sablier
 <!-- x-release-please-start-version -->
 ```bash
 wget https://github.com/sablierapp/sablier-proxywasm-plugin/releases/download/v1.1.0/sablier-proxywasm-plugin.wasm
+
+gh attestation verify --owner sablierapp sablier-proxywasm-plugin.wasm
 ```
 <!-- x-release-please-end -->
 
