@@ -37,7 +37,7 @@ Grab the latest binary from the [releases](https://github.com/sablierapp/sablier
 
 <!-- x-release-please-start-version -->
 ```bash
-wget https://github.com/sablierapp/sablier-proxywasm-plugin/releases/download/v1.0.5/sablier-proxywasm-plugin_1.0.4_wasip1_wasm
+wget https://github.com/sablierapp/sablier-proxywasm-plugin/releases/download/v1.0.5/sablier-proxywasm-plugin.wasm
 ```
 <!-- x-release-please-end -->
 
@@ -48,7 +48,7 @@ git clone git@github.com:sablierapp/sablier-proxywasm-plugin.git
 cd sablier-proxywasm-plugin
 make
 
-./sablierproxywasm.wasm
+./sablier-proxywasm-plugin.wasm
 ```
 
 ## Usage

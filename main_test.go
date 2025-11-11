@@ -94,7 +94,11 @@ func vmTest(t *testing.T, f func(*testing.T, types.VMContext)) {
 		}
 		v, err := proxytest.NewWasmVMContext(wasm)
 		require.NoError(t, err)
-		defer v.Close()
+		defer func() {
+			if err := v.Close(); err != nil {
+				t.Logf("failed to close VM context: %v", err)
+			}
+		}()
 		f(t, v)
 	})
 }
