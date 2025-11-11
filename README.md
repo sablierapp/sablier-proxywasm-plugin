@@ -35,11 +35,11 @@ You can install Sablier using one of the following methods:
 
 Grab the latest binary from the [releases](https://github.com/sablierapp/sablier-proxywasm-release/releases) page and use it:
 
-<!-- x-release-please-version-start -->
+<!-- x-release-please-start-version -->
 ```bash
 wget https://github.com/sablierapp/sablier-proxywasm-plugin/releases/download/v1.0.5/sablier-proxywasm-plugin_1.0.4_wasip1_wasm
 ```
-<!-- x-release-please-version-end -->
+<!-- x-release-please-end -->
 
 ### Compile your binary from the sources
 
