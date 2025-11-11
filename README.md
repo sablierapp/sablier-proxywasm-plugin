@@ -9,19 +9,51 @@ Start your containers on demand, shut them down automatically when there's no ac
 You can use this plugin with any reverse proxy that implements the ProxyWasm specification.
 
 - [Installation](#installation)
+  - [Use the binary distribution](#use-the-binary-distribution)
+  - [Compile your binary from the sources](#compile-your-binary-from-the-sources)
+- [Usage](#usage)
 - [Configuration](#configuration)
 - [Examples](#examples)
   - [Apache APISIX](#apache-apisix)
   - [Envoy](#envoy)
   - [Istio](#istio)
   - [Nginx](#nginx)
-- [Other Plugins](#other-plugins)
+- [Other Reverse Proxy Plugins](#other-reverse-proxy-plugins)
+  - [Caddy](#caddy)
+  - [Traefik](#traefik)
 - [Community](#community)
 - [Support](#support)
 
 ## Installation
 
-Installation depends on the reverse proxy integration with Proxy Wasm. 
+You can install Sablier using one of the following methods:
+
+- [Use the binary distribution](#use-the-binary-distribution)
+- [Compile your binary from the sources](#compile-your-binary-from-the-sources)
+
+### Use the binary distribution
+
+Grab the latest binary from the [releases](https://github.com/sablierapp/sablier-proxywasm-release/releases) page and use it:
+
+<!-- x-release-please-version-start -->
+```bash
+wget https://github.com/sablierapp/sablier-proxywasm-plugin/releases/download/v1.0.5/sablier-proxywasm-plugin_1.0.4_wasip1_wasm
+```
+<!-- x-release-please-version-end -->
+
+### Compile your binary from the sources
+
+```bash
+git clone git@github.com:sablierapp/sablier-proxywasm-plugin.git
+cd sablier-proxywasm-plugin
+make
+
+./sablierproxywasm.wasm
+```
+
+## Usage
+
+The usage depends on the reverse proxy integration with Proxy Wasm. 
 
 See [examples](#examples) for more details on how to set it up with providers.
 
@@ -59,10 +91,35 @@ See the [istio example](./examples/istio/) on how to use the plugin.
 
 See the [nginx example](./examples/nginx/) on how to use the plugin.
 
-## Other Plugins
+## Other Reverse Proxy Plugins
 
-- [sablier-caddy-plugin](https://github.com/sablierapp/sablier-caddy-plugin)
-- [sablier-traefik-plugin](https://github.com/sablierapp/sablier-traefik-plugin)
+### Caddy
+
+<img src="./docs/assets/img/caddy.png" alt="Caddy" width="100" align="right" />
+
+Sablier provides a native Caddy module for seamless integration with Caddy v2.
+
+**Quick Start:**
+1. Build Caddy with the Sablier module using `xcaddy`
+2. Add Sablier directives to your Caddyfile
+3. Configure dynamic scaling rules
+
+📚 **[Full Documentation](https://github.com/sablierapp/sablier-caddy-plugin)** | 💻 **[Plugin Repository](https://github.com/sablierapp/sablier-caddy-plugin)**
+
+---
+
+### Traefik
+
+<img src="./docs/assets/img/traefik.png" alt="Traefik" width="100" align="right" />
+
+Sablier provides a powerful middleware plugin for Traefik, the cloud-native application proxy.
+
+**Quick Start:**
+1. Add the Sablier plugin to your Traefik static configuration
+2. Create Sablier middleware in your dynamic configuration
+3. Apply the middleware to your routes
+
+📚 **[Full Documentation](https://github.com/sablierapp/sablier-traefik-plugin)** | 💻 **[Plugin Repository](https://github.com/sablierapp/sablier-traefik-plugin)**
 
 ## Community
 

@@ -13,5 +13,11 @@ builds:
       - wasip1_wasm
     buildmode: c-shared
 
+archives:
+  - id: wasm
+    formats:
+      - binary
+    name_template: '{{ .Binary }}'
+
 changelog:
   use: github
