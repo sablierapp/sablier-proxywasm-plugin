@@ -19,5 +19,9 @@ archives:
       - binary
     name_template: '{{ .Binary }}'
 
+# Change the checksum filename:
+checksum:
+  name_template: "checksums.txt"
+
 changelog:
   use: github
