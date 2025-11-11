@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.0.3](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.2...v1.0.3) (2025-11-11)
+
+
+### Bug Fixes
+
+* add missing license ([427229e](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/427229e0e5099ece3869b3de49c12c29d3629886))
+* publish releases as draft ([1fdc368](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/1fdc36841d096756a140d958ee8b6be034332979))
+
 ## [1.0.2](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.1...v1.0.2) (2025-11-09)
 
 
