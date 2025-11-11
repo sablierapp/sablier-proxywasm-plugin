@@ -3,7 +3,6 @@ module github.com/sablierapp/sablier-proxywasm-plugin
 go 1.25.4
 
 require (
-	github.com/json-iterator/tinygo v0.0.0-20211221071957-84b5b690c8a0
 	github.com/proxy-wasm/proxy-wasm-go-sdk v0.0.0-20250212164326-ab4161dcf924
 	github.com/stretchr/testify v1.11.1
 	golang.org/x/exp v0.0.0-20250207012021-f9890c6ad9f3

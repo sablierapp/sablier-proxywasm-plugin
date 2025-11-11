@@ -1,6 +1,7 @@
 package main
 
 import (
+	"encoding/json"
 	"errors"
 	"fmt"
 	"net/url"
@@ -8,7 +9,6 @@ import (
 	"strings"
 	"time"
 
-	jsoniter "github.com/json-iterator/tinygo"
 	"github.com/proxy-wasm/proxy-wasm-go-sdk/proxywasm"
 	"github.com/proxy-wasm/proxy-wasm-go-sdk/proxywasm/types"
 	"golang.org/x/exp/slices"
@@ -192,8 +192,6 @@ func parsePluginConfiguration(data []byte) (pluginConfiguration, error) {
 		return pluginConf, fmt.Errorf("the plugin configuration is not a valid: %q", string(data))
 	}
 
-	json := jsoniter.CreateJsonAdapter(Config_json{}, BlockingConfiguration_json{}, DynamicConfiguration_json{})
-
 	var c Config
 	err := json.Unmarshal(data, &c)
 	if err != nil {
@@ -296,7 +294,9 @@ func httpCallResponseCallback(numHeaders, bodySize, numTrailers int) {
 	headerIndex := slices.IndexFunc(hs, func(h [2]string) bool { return strings.ToLower(h[0]) == "x-sablier-session-status" })
 	if headerIndex < 0 {
 		proxywasm.LogCriticalf("failed to find x-sablier-session-status header: %v", hs)
-		proxywasm.ResumeHttpRequest()
+		if err := proxywasm.ResumeHttpRequest(); err != nil {
+			proxywasm.LogErrorf("failed to resume http request: %v", err)
+		}
 		return
 	}
 	headerValue := hs[headerIndex][1]
@@ -305,7 +305,9 @@ func httpCallResponseCallback(numHeaders, bodySize, numTrailers int) {
 		b, err := proxywasm.GetHttpCallResponseBody(0, bodySize)
 		if err != nil {
 			proxywasm.LogCriticalf("failed to get response body: %v", err)
-			proxywasm.ResumeHttpRequest()
+			if err := proxywasm.ResumeHttpRequest(); err != nil {
+				proxywasm.LogErrorf("failed to resume http request: %v", err)
+			}
 			return
 		}
 
@@ -313,9 +315,13 @@ func httpCallResponseCallback(numHeaders, bodySize, numTrailers int) {
 
 		if err := proxywasm.SendHttpResponse(200, hs, b, -1); err != nil {
 			proxywasm.LogErrorf("failed to send local response: %v", err)
-			proxywasm.ResumeHttpRequest()
+			if err := proxywasm.ResumeHttpRequest(); err != nil {
+				proxywasm.LogErrorf("failed to resume http request: %v", err)
+			}
 		}
 	} else {
-		proxywasm.ResumeHttpRequest()
+		if err := proxywasm.ResumeHttpRequest(); err != nil {
+			proxywasm.LogErrorf("failed to resume http request: %v", err)
+		}
 	}
 }
