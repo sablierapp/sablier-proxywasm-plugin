@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.1.0](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.5...v1.1.0) (2025-11-11)
+
+
+### Features
+
+* add attestation ([#9](https://github.com/sablierapp/sablier-proxywasm-plugin/issues/9)) ([94a3de5](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/94a3de5c7ed7930adeee8939e07e3e093c4dcbf8))
+
+
+### Bug Fixes
+
+* remove jsoniter ([#7](https://github.com/sablierapp/sablier-proxywasm-plugin/issues/7)) ([0837440](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/0837440c460c31d584ab5a5882868cb749908a49))
+
 ## [1.0.5](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.4...v1.0.5) (2025-11-11)
 
 
