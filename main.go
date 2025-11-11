@@ -80,7 +80,6 @@ func (ctx *pluginContext) OnPluginStart(pluginConfigurationSize int) types.OnPlu
 	return types.OnPluginStartStatusOK
 }
 
-//go:generate go run github.com/json-iterator/tinygo/gen
 type DynamicConfiguration struct {
 	DisplayName      string `json:"display_name"`
 	ShowDetails      *bool  `json:"show_details"`
@@ -88,12 +87,10 @@ type DynamicConfiguration struct {
 	RefreshFrequency string `json:"refresh_frequency"`
 }
 
-//go:generate go run github.com/json-iterator/tinygo/gen
 type BlockingConfiguration struct {
 	Timeout string `json:"timeout"`
 }
 
-//go:generate go run github.com/json-iterator/tinygo/gen
 type Config struct {
 	// SablierURL in the format of hostname:port. The scheme is excluded
 	SablierURL string `json:"sablier_url"`
