@@ -39,8 +39,10 @@
                 }
             ],
             "extra-files": [
-                "Dockerfile",
-                "README.md"
+                {
+                    "type": "generic",
+                    "path": "README.md"
+                }
             ]
         }
     }
