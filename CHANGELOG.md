@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.4](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.3...v1.0.4) (2025-11-11)
+
+
+### Bug Fixes
+
+* remove draft from release ([a3fda5f](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/a3fda5f7ea862005a2f1ee9a5c850b002c13b93f))
+
 ## [1.0.3](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.2...v1.0.3) (2025-11-11)
 
 
