@@ -1,5 +1,20 @@
 # Changelog
 
+## [1.0.5](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.4...v1.0.5) (2025-11-11)
+
+
+### Bug Fixes
+
+* publish raw wasm plugin ([a5d2ec5](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/a5d2ec5bcc733b3be3cd30a4e3c3c9968b09c565))
+* revert binary instruction ([7b3e1f3](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/7b3e1f3e8bb0df697321451bfb45a518359acb3a))
+* use proper release please markers ([fa26599](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/fa26599d4fe23ed994c68360accbf1aff6d5f499))
+* use type generic for extra file ([9ace7c1](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/9ace7c163bdca4c0fbaf8642e9b0660bd6e6e120))
+
+
+### Documentation
+
+* add images ([d419123](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/d4191237b9de24f38562302e90729880563dcc12))
+
 ## [1.0.4](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.3...v1.0.4) (2025-11-11)
 
 
