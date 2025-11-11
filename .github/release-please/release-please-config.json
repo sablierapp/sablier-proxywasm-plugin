@@ -4,6 +4,7 @@
         ".": {
             "release-type": "go",
             "bump-minor-pre-major": true,
+            "draft": true,
             "changelog-sections": [
                 {
                     "type": "feat",
