@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.1.0...v1.1.1) (2026-01-31)
+
+
+### Documentation
+
+* add attestation ([69ad376](https://github.com/sablierapp/sablier-proxywasm-plugin/commit/69ad3762d6e981c8594940199d1930ce38a830dc))
+
 ## [1.1.0](https://github.com/sablierapp/sablier-proxywasm-plugin/compare/v1.0.5...v1.1.0) (2025-11-11)
 
 
