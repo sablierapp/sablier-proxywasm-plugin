@@ -70,7 +70,8 @@ You can load a JSON configuration such as:
     "session_duration": "1m", 
     "dynamic": { 
         "display_name": "My Group", 
-        "theme": "hacker-terminal" 
+        "theme": "hacker-terminal",
+        "ready_on_start": false
     }
 }
 ```
