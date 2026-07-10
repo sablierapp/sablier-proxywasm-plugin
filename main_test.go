@@ -9,6 +9,27 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestUnmarshalPoke(t *testing.T) {
+	data := `{
+		"sablier_url": "sablier",
+		"group": "demo",
+		"session_duration": "30s",
+		"poke": {}
+	}`
+
+	config, err := parsePluginConfiguration([]byte(data))
+	if err != nil {
+		t.Error(err)
+	}
+
+	expected := "/api/strategies/poke?group=demo&session_duration=30s"
+	if config.path != expected {
+		t.Errorf("path = %v, want %v", config.path, expected)
+	}
+
+	t.Log("path:", config.path)
+}
+
 func TestUnmarshal(t *testing.T) {
 	data := `{
 		"sablier_url": "sablier",

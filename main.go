@@ -46,6 +46,7 @@ type pluginConfiguration struct {
 	path      string
 	authority string
 	timeout   uint32
+	poke      bool
 }
 
 // newPluginConfiguration creates a pluginConfiguration with default values
@@ -91,6 +92,9 @@ type BlockingConfiguration struct {
 	Timeout string `json:"timeout"`
 }
 
+type PokeConfiguration struct {
+}
+
 type Config struct {
 	// SablierURL in the format of hostname:port. The scheme is excluded
 	SablierURL string `json:"sablier_url"`
@@ -105,6 +109,7 @@ type Config struct {
 	SessionDuration string                 `json:"session_duration"`
 	Dynamic         *DynamicConfiguration  `json:"dynamic"`
 	Blocking        *BlockingConfiguration `json:"blocking"`
+	Poke            *PokeConfiguration     `json:"poke"`
 }
 
 func (c Config) GetPath() string {
@@ -133,6 +138,8 @@ func (c Config) GetPath() string {
 		return c.getDynamicQuery(path)
 	} else if c.Blocking != nil {
 		return c.getBlockingQuery(path)
+	} else if c.Poke != nil {
+		return c.getPokeQuery(path)
 	}
 	return "no strategy configured"
 }
@@ -183,6 +190,12 @@ func (c Config) getBlockingQuery(path url.URL) string {
 	return path.String()
 }
 
+func (c Config) getPokeQuery(path url.URL) string {
+	path.Path = "/api/strategies/poke"
+
+	return path.String()
+}
+
 func parsePluginConfiguration(data []byte) (pluginConfiguration, error) {
 	pluginConf := newPluginConfiguration()
 	if len(data) == 0 {
@@ -196,11 +209,20 @@ func parsePluginConfiguration(data []byte) (pluginConfiguration, error) {
 		return pluginConf, err
 	}
 
-	if c.Blocking == nil && c.Dynamic == nil {
-		return pluginConf, fmt.Errorf("you must specify one strategy (dynamic or blocking)")
+	strategyCount := 0
+	if c.Blocking != nil {
+		strategyCount++
 	}
-
-	if c.Blocking != nil && c.Dynamic != nil {
+	if c.Dynamic != nil {
+		strategyCount++
+	}
+	if c.Poke != nil {
+		strategyCount++
+	}
+	if strategyCount == 0 {
+		return pluginConf, fmt.Errorf("you must specify one strategy (dynamic, blocking or poke)")
+	}
+	if strategyCount > 1 {
 		return pluginConf, fmt.Errorf("you must specify only one strategy")
 	}
 
@@ -232,6 +254,7 @@ func parsePluginConfiguration(data []byte) (pluginConfiguration, error) {
 	}
 
 	pluginConf.path = c.GetPath()
+	pluginConf.poke = c.Poke != nil
 
 	return pluginConf, nil
 }
@@ -250,6 +273,7 @@ func (ctx *pluginContext) NewHttpContext(contextID uint32) types.HttpContext {
 		headers:   headers,
 		cluster:   ctx.configuration.cluster,
 		timeout:   ctx.configuration.timeout,
+		poke:      ctx.configuration.poke,
 	}
 }
 
@@ -261,6 +285,7 @@ type httpOnDemand struct {
 	headers   [][2]string
 	cluster   string
 	timeout   uint32
+	poke      bool
 }
 
 // Override types.DefaultHttpContext.
@@ -276,6 +301,9 @@ func (ctx *httpOnDemand) OnHttpRequestHeaders(numHeaders int, endOfStream bool) 
 
 	proxywasm.LogInfof("http call dispatched to %s", ctx.cluster)
 
+	if ctx.poke {
+		return types.ActionContinue
+	}
 	return types.ActionPause
 }
 
