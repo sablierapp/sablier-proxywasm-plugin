@@ -75,6 +75,17 @@ You can load a JSON configuration such as:
 }
 ```
 
+Or use the poke strategy to start instances without waiting:
+
+```json
+{ 
+    "sablier_url": "sablier:10000", 
+    "group": "my-group", 
+    "session_duration": "1m", 
+    "poke": {}
+}
+```
+
 ## Examples
 
 ### Apache APISIX
