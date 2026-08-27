@@ -85,6 +85,7 @@ type DynamicConfiguration struct {
 	ShowDetails      *bool  `json:"show_details"`
 	Theme            string `json:"theme"`
 	RefreshFrequency string `json:"refresh_frequency"`
+	ReadyOnStart     *bool  `json:"ready_on_start"`
 }
 
 type BlockingConfiguration struct {
@@ -160,6 +161,9 @@ func (c Config) getDynamicQuery(path url.URL) string {
 
 	if c.Dynamic.ShowDetails != nil {
 		q.Add("show_details", strconv.FormatBool(*c.Dynamic.ShowDetails))
+	}
+	if c.Dynamic.ReadyOnStart != nil {
+		q.Add("ready_on_start", strconv.FormatBool(*c.Dynamic.ReadyOnStart))
 	}
 	path.RawQuery = q.Encode()
 

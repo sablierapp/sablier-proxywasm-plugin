@@ -9,6 +9,29 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestUnmarshalWithReadyOnStart(t *testing.T) {
+	data := `{
+		"sablier_url": "sablier",
+		"group": "demo",
+		"dynamic": {
+			"theme": "hacker-terminal",
+			"ready_on_start": true
+		}
+	}`
+
+	config, err := parsePluginConfiguration([]byte(data))
+	if err != nil {
+		t.Error(err)
+	}
+
+	expected := "/api/strategies/dynamic?group=demo&ready_on_start=true&theme=hacker-terminal"
+	if config.path != expected {
+		t.Errorf("path = %v, want %v", config.path, expected)
+	}
+
+	t.Log("path:", config.path)
+}
+
 func TestUnmarshal(t *testing.T) {
 	data := `{
 		"sablier_url": "sablier",
